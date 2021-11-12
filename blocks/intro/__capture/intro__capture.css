@@ -1,0 +1,9 @@
+.intro__capture {
+    display: block;
+    color: white;
+    outline: 1px solid red;
+    margin: 0;
+    font-weight: 400;
+    line-height: 22px;
+    font-size: 18px;
+}

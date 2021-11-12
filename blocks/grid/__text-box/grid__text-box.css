@@ -1,0 +1,6 @@
+.grid__text-box {
+    display: flex;
+    justify-content: space-between;
+    max-width: 246px;
+    margin: 0 auto;
+}
