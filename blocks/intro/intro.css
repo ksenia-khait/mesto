@@ -5,3 +5,11 @@
   outline: 1px solid red;
   margin-bottom: 51px;
 }
+
+@media all and (max-width: 1279px) {
+  .intro {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 36px;
+  }
+}

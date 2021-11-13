@@ -4,3 +4,9 @@
   margin: 0 auto;
   font-family: "Inter", sans-serif;
 }
+
+@media all and (max-width: 1279px) {
+  .page {
+    max-width: 320px;
+  }
+}

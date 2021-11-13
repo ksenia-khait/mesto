@@ -3,3 +3,11 @@
   border-radius: 50%;
   margin-right: 41px;
 }
+
+@media all and (max-width: 1279px) {
+  .intro__image {
+    width: 128px;
+    height: 128px;
+    margin: 0 0 22px;
+  }
+}

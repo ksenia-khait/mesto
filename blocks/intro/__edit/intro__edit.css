@@ -5,3 +5,13 @@
   border: 1px solid white;
   margin-top: 9px;
 }
+
+@media all and (max-width: 1279px) {
+  .intro__edit {
+    width: 7.5px;
+    height: 7.5px;
+    padding: 4px;
+    border: 1px solid white;
+    margin-top: 5px;
+  }
+}

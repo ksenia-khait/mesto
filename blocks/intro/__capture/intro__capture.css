@@ -7,3 +7,10 @@
   line-height: 22px;
   font-size: 18px;
 }
+
+@media all and (max-width: 1279px) {
+  .intro__capture {
+    font-size: 14px;
+    line-height: 17px;
+  }
+}

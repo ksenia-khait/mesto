@@ -3,3 +3,11 @@
   outline: 1px solid red;
   align-items: center;
 }
+
+@media all and (max-width: 1279px) {
+  .intro__profile {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 36px;
+  }
+}
