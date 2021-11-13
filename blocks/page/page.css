@@ -1,12 +1,6 @@
 .page {
   max-width: 880px;
-  outline: 1px solid red;
   margin: 0 auto;
   font-family: "Inter", sans-serif;
 }
 
-@media all and (max-width: 1279px) {
-  .page {
-    max-width: 320px;
-  }
-}
