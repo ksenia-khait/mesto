@@ -1,0 +1,9 @@
+.grid__heart {
+    width: 22px;
+    height: 19px;
+}
+
+.grid__heart:hover {
+    opacity: 0.5;
+    cursor: pointer;
+}

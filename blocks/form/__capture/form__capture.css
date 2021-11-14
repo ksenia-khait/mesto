@@ -1,0 +1,15 @@
+.form__capture {
+  border: none;
+  border-bottom: 1px solid #F7F7FA;
+  font-size: 14px;
+  line-height: 17px;
+  padding: 0;
+  padding-bottom: 13px;
+  margin-bottom: 48px;
+}
+
+@media all and (max-width: 1279px) {
+  .form__capture {
+   margin-bottom: 45px;
+  }
+}

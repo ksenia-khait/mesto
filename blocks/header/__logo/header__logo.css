@@ -1,6 +1,13 @@
 .header__logo {
   width: 142px;
-  color: #ffffff;
+  stroke: #fff;
+}
+
+.header__logo:hover {
+  cursor: pointer;
+  stroke: black;
+  fill:black;
+  color: black;
 }
 
 @media all and (max-width: 1279px) {

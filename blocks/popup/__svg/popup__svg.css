@@ -1,0 +1,18 @@
+.popup__svg {
+  position: absolute;
+  width: 32px;
+  height: 32px;
+  right: 0;
+}
+
+.popup__svg:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}
+
+@media all and (max-width: 1279px) {
+  .popup__svg {
+   width: 20px;
+   height: 20px;
+  }
+}

@@ -8,6 +8,19 @@
   </head>
 
   <body class="background">
+    <div class="popup">
+      <img src="./images/cross.svg" alt="Закрыть" class="popup__svg" />
+      <div class="popup__container">
+        <p class="popup__text">Редактировать профиль</p>
+        <form class="form">
+          <input type="text" class="form__name" placeholder="Имя" />
+          <input type="text" class="form__capture" placeholder="О себе" />
+          <input type="submit" class="form__button" value="Сохранить" />
+        </form>
+      </div>
+      <div class="popup__background"></div>
+    </div>
+
     <div class="page">
       <!--HEADER start-->
       <header class="header">
@@ -96,7 +109,7 @@
       <footer class="footer">
         <p class="footer__copyright">&copy;2021. Mesto Russia</p>
       </footer>
-       <!--FOOTER end-->
+      <!--FOOTER end-->
     </div>
   </body>
 </html>

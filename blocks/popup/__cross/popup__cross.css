@@ -1,0 +1,6 @@
+.popup__cross {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  margin: 40px;
+}
