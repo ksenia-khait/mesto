@@ -1,19 +1,16 @@
 .popup__container {
   display: flex;
   flex-direction: column;
-  margin-top: 40px;
-  margin-right: 40px;
   width: 430px;
   height: 330px;
   background-color: white;
-  z-index: 3;
   border-radius: 10px;
+  position: relative;
 }
 
 @media all and (max-width: 1279px) {
   .popup__container {
     width: 282px;
-    margin-top: 36px;
-    margin-right: 36px;
+    
   }
 }

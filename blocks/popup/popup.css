@@ -1,18 +1,11 @@
 .popup {
   position: fixed;
-  font-family: "Inter";
-  width: 470px;
-  height: 370px;
-  left: calc( 50vw - 215px ); 
-  top: calc( 50vw - 370px ); 
- 
+  top: 0; 
+  
+  width: 100vw;
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
-@media all and (max-width: 1279px) {
-    .popup {
-      width: 282px;
-      height: 322px;
-      left: calc( 50vw - 141px ); 
-      /*top: calc( 50vh - 362px );*/ 
-    }
-  }
