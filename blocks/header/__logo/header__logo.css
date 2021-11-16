@@ -6,7 +6,7 @@
 .header__logo:hover {
   cursor: pointer;
   stroke: black;
-  fill:black;
+  fill: black;
   color: black;
 }
 

@@ -13,9 +13,9 @@
 
 @media all and (max-width: 1279px) {
   .popup__svg {
-   width: 20px;
-   height: 20px;
-   top: -36px;
-   right: 0;
+    width: 20px;
+    height: 20px;
+    top: -36px;
+    right: 0;
   }
 }

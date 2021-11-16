@@ -1,6 +1,6 @@
 .form__capture {
   border: none;
-  border-bottom: 1px solid #F7F7FA;
+  border-bottom: 1px solid #f7f7fa;
   font-size: 14px;
   line-height: 17px;
   padding: 0;
@@ -10,6 +10,6 @@
 
 @media all and (max-width: 1279px) {
   .form__capture {
-   margin-bottom: 45px;
+    margin-bottom: 45px;
   }
 }

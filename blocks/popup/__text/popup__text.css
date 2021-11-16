@@ -9,8 +9,8 @@
 
 @media all and (max-width: 1279px) {
   .popup__text {
-   font-size: 18px;
-   width: 238px;
-   margin: 25px auto 75px;
+    font-size: 18px;
+    width: 238px;
+    margin: 25px auto 75px;
   }
 }
