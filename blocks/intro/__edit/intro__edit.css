@@ -1,6 +1,9 @@
 .intro__edit {
-  width: 10px;
-  height: 10px;
+  background: url(../../../images/pen.svg) no-repeat;
+  background-size: initial;
+  background-position: center;
+  width: 24px;
+  height: 24px;
   padding: 6px;
   border: 1px solid white;
   margin-top: 9px;
@@ -13,8 +16,8 @@
 
 @media all and (max-width: 1279px) {
   .intro__edit {
-    width: 7.5px;
-    height: 7.5px;
+    width: 18px;
+    height: 18px;
     padding: 4px;
     border: 1px solid white;
     margin-top: 5px;

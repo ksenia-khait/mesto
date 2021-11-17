@@ -17,7 +17,6 @@
 @import url("../blocks/intro/__name/intro__name.css");
 @import url("../blocks/intro/__edit/intro__edit.css");
 @import url("../blocks/intro/__capture/intro__capture.css");
-
 @import url("../blocks/intro/__add-button/intro__add-button.css");
 /* INTRO end */
 
@@ -39,7 +38,6 @@
 /* POPUP start*/
 @import url("../blocks/popup/popup.css");
 @import url("../blocks/popup/__background/popup__background.css");
-@import url("../blocks/popup/__cross/popup__cross.css");
 @import url("../blocks/popup/__svg/popup__svg.css");
 @import url("../blocks/popup/__container/popup__container.css");
 @import url("../blocks/form/form.css");

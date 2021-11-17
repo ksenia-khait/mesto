@@ -11,23 +11,21 @@
     <div class="page">
       <!--HEADER start-->
       <header class="header">
-        <img src="./images/Vector.svg" alt="Логотип" class="header__logo" />
+        <div src="./images/Vector.svg" alt="Логотип" class="header__logo"></div>
       </header>
       <!--HEADER end-->
       <main class="content">
         <!--INTRO start-->
         <section class="intro">
           <div class="intro__profile">
-            <img src="./images/image.jpg" alt="Фото" class="intro__image" />
+            <img 
+              src="./images/image.jpg" 
+              alt="Фото" 
+              class="intro__image" />
             <div class="intro__description">
               <div class="intro__name-box">
-                <p class="intro__name">Жак-Ив Кусто</p>
-                <img
-                  src="./images/pen.svg"
-                  alt="Редактировать"
-                  class="intro__edit"
-                  id="pen"
-                />
+                <h1 class="intro__name">Жак-Ив Кусто</h1>
+                <button class="intro__edit" id="pen"></button>
               </div>
               <p class="intro__capture">Исследователь океана</p>
             </div>
@@ -48,40 +46,48 @@
               class="grid__image"
             />
             <div class="grid__text-box">
-              <p class="grid__text">Карачаевск</p>
-              <img src="./images/heart.svg" alt="Сердце" class="grid__heart" />
+              <h2 class="grid__text">Карачаевск</h2>
+              <button src="./images/heart.svg" class="grid__heart"></button>
             </div>
           </div>
           <div class="grid__item">
-            <img src="./images/hills.png" alt="Эльбрус" class="grid__image" />
+            <img 
+              src="./images/hills.png" 
+              alt="Эльбрус" 
+              class="grid__image" />
             <div class="grid__text-box">
-              <p class="grid__text">Гора Эльбрус</p>
-              <img
-                src="./images/heart.svg"
-                alt="Сердце"
-                class="grid__heart grid__heart_active"
-              />
+              <h2 class="grid__text">Гора Эльбрус</h2>
+              <button src="./images/heart.svg" class="grid__heart"></button>
             </div>
           </div>
           <div class="grid__item">
-            <img src="./images/forest.png" alt="Домбай" class="grid__image" />
+            <img 
+              src="./images/forest.png" 
+              alt="Домбай" 
+              class="grid__image" />
             <div class="grid__text-box">
-              <p class="grid__text">Домбай</p>
-              <img src="./images/heart.svg" alt="Сердце" class="grid__heart" />
+              <h2 class="grid__text">Домбай</h2>
+              <button src="./images/heart.svg" class="grid__heart"></button>
             </div>
           </div>
           <div class="grid__item">
-            <img src="./images/hills.png" alt="Эльбрус" class="grid__image" />
+            <img 
+              src="./images/hills.png" 
+              alt="Эльбрус" 
+              class="grid__image" />
             <div class="grid__text-box">
-              <p class="grid__text">Гора Эльбрус</p>
-              <img src="./images/heart.svg" alt="Сердце" class="grid__heart" />
+              <h2 class="grid__text">Гора Эльбрус</h2>
+              <button src="./images/heart.svg" class="grid__heart"></button>
             </div>
           </div>
           <div class="grid__item">
-            <img src="./images/forest.png" alt="Домбай" class="grid__image" />
+            <img 
+              src="./images/forest.png" 
+              alt="Домбай" 
+              class="grid__image" />
             <div class="grid__text-box">
-              <p class="grid__text">Домбай</p>
-              <img src="./images/heart.svg" alt="Сердце" class="grid__heart" />
+              <h2 class="grid__text">Домбай</h2>
+              <button src="./images/heart.svg" class="grid__heart"></button>
             </div>
           </div>
           <div class="grid__item">
@@ -91,8 +97,8 @@
               class="grid__image"
             />
             <div class="grid__text-box">
-              <p class="grid__text">Карачаево-Черкесия</p>
-              <img src="./images/heart.svg" alt="Сердце" class="grid__heart" />
+              <h2 class="grid__text">Карачаево-Черкесия</h2>
+              <button src="./images/heart.svg" class="grid__heart"></button>
             </div>
           </div>
         </section>
@@ -108,17 +114,12 @@
     </div>
     <div class="popup" id="popup">
       <div class="popup__container">
-        <img
-          src="./images/cross.svg"
-          alt="Закрыть"
-          class="popup__svg"
-          id="cross"
-        />
+        <button src="./images/cross.svg" alt="Закрыть" class="popup__svg" id="cross"></button>
         <p class="popup__text">Редактировать профиль</p>
-        <form class="form">
-          <input type="text" class="form__name" placeholder="Имя" />
-          <input type="text" class="form__capture" placeholder="О себе" />
-          <input type="submit" class="form__button" value="Сохранить" />
+        <form class="form" name="form">
+          <input type="text" class="form__name" name="name" placeholder="Имя" />
+          <input type="text" class="form__capture" name="capture" placeholder="О себе" />
+          <input type="submit" class="form__button" name="button" value="Сохранить" />
         </form>
       </div>
 
