@@ -1,11 +1,11 @@
-const editProfileButton = document.getElementById("pen");
-const closePopupButton = document.getElementById("cross");
-let popup = document.getElementById("popup");
-let formElement = document.querySelector(".form");
-let nameInput = document.querySelector(".form__name");
-let jobInput = document.querySelector(".form__capture");
-let userName = document.querySelector(".intro__name");
-let userCapture = document.querySelector(".intro__capture");
+const editProfileButton = document.querySelector("#pen");
+const closePopupButton = document.querySelector("#cross");
+const popup = document.querySelector("#popup");
+const formElement = document.querySelector(".form");
+const nameInput = document.querySelector(".form__name");
+const jobInput = document.querySelector(".form__capture");
+const userName = document.querySelector(".intro__name");
+const userCapture = document.querySelector(".intro__capture");
 
 editProfileButton.addEventListener("click", function (mouseEvent) {
   nameInput.value = userName.textContent;
