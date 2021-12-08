@@ -7,7 +7,7 @@
   row-gap: 20px;
 }
 
-.grid {
+.grid:hover {
   cursor: pointer;
 }
 
