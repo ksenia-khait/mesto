@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css" />
+    <script src="./scripts/script.js" defer></script>
   </head>
 
   <body class="background">
@@ -18,10 +19,7 @@
         <!--INTRO start-->
         <section class="intro">
           <div class="intro__profile">
-            <img 
-              src="./images/image.jpg" 
-              alt="Фото" 
-              class="intro__image" />
+            <img src="./images/image.jpg" alt="Фото" class="intro__image" />
             <div class="intro__description">
               <div class="intro__name-box">
                 <h1 class="intro__name">Жак-Ив Кусто</h1>
@@ -31,76 +29,21 @@
             </div>
           </div>
 
-          <img
-            src="./images/Plus.svg"
-            alt="Добавить"
-            class="intro__add-button"
-          />
+          <button class="intro__add-button"></button>
         </section>
         <!--GRID-->
+
         <section class="grid">
-          <div class="grid__item">
-            <img
-              src="./images/castle.png"
-              alt="Карачаевск"
-              class="grid__image"
-            />
-            <div class="grid__text-box">
-              <h2 class="grid__text">Карачаевск</h2>
-              <button class="grid__heart"></button>
+          <template class="template">
+            <div class="grid__item">
+              <img src="./images/Trash.svg" alt="Корзина" class="grid__trash" />
+              <img class="grid__image" />
+              <div class="grid__text-box">
+                <h2 class="grid__text"></h2>
+                <button class="grid__heart"></button>
+              </div>
             </div>
-          </div>
-          <div class="grid__item">
-            <img 
-              src="./images/hills.png" 
-              alt="Эльбрус" 
-              class="grid__image" />
-            <div class="grid__text-box">
-              <h2 class="grid__text">Гора Эльбрус</h2>
-              <button class="grid__heart"></button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img 
-              src="./images/forest.png" 
-              alt="Домбай" 
-              class="grid__image" />
-            <div class="grid__text-box">
-              <h2 class="grid__text">Домбай</h2>
-              <button class="grid__heart"></button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img 
-              src="./images/hills.png" 
-              alt="Эльбрус" 
-              class="grid__image" />
-            <div class="grid__text-box">
-              <h2 class="grid__text">Гора Эльбрус</h2>
-              <button class="grid__heart"></button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img 
-              src="./images/forest.png" 
-              alt="Домбай" 
-              class="grid__image" />
-            <div class="grid__text-box">
-              <h2 class="grid__text">Домбай</h2>
-              <button class="grid__heart"></button>
-            </div>
-          </div>
-          <div class="grid__item">
-            <img
-              src="./images/castle.png"
-              alt="Карачаевск"
-              class="grid__image"
-            />
-            <div class="grid__text-box">
-              <h2 class="grid__text">Карачаево-Черкесия</h2>
-              <button class="grid__heart"></button>
-            </div>
-          </div>
+          </template>
         </section>
       </main>
       <!--FOOTER start-->
@@ -109,6 +52,7 @@
       </footer>
       <!--FOOTER end-->
     </div>
+
     <!--POPUP start-->
     <div class="popup" id="popup">
       <div class="popup__container">
@@ -116,12 +60,60 @@
         <p class="popup__text">Редактировать профиль</p>
         <form class="form" name="form">
           <input type="text" class="form__name" name="name" placeholder="Имя" />
-          <input type="text" class="form__capture" name="capture" placeholder="О себе" />
-          <input type="submit" class="form__button" name="button" value="Сохранить" />
+          <input
+            type="text"
+            class="form__capture"
+            name="capture"
+            placeholder="О себе"
+          />
+          <input
+            type="submit"
+            class="form__button"
+            name="button"
+            value="Сохранить"
+          />
         </form>
       </div>
     </div>
     <!--POPUP end-->
-    <script src="./scripts/script.js"></script>
+
+    <!--NEW-ITEM start-->
+    <div class="new-item">
+      <div class="new-item__container">
+        <button class="new-item__svg"></button>
+        <p class="new-item__text">Новое место</p>
+        <form class="new-item-form" name="form">
+          <input
+            type="text"
+            class="new-item-form__name"
+            name="name"
+            placeholder="Название"
+          />
+          <input
+            type="text"
+            class="new-item-form__capture"
+            name="capture"
+            placeholder="Ссылку на картинку"
+          />
+          <input
+            type="submit"
+            class="new-item-form__button"
+            name="button"
+            value="Создать"
+          />
+        </form>
+      </div>
+    </div>
+    <!--NEW-ITEM end-->
+
+    <!--POPUP-IMAGE start-->
+    <div class="popup-image">
+      <div class="popup-image__container">
+        <button class="popup-image__svg"></button>
+        <img alt="Картинка" class="popup-image__image" src="#" />
+        <p class="popup-image__capture"></p>
+      </div>
+    </div>
+    <!--POPUP-IMAGE end-->
   </body>
 </html>

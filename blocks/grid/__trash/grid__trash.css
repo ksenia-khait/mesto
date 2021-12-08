@@ -1,0 +1,13 @@
+.grid__trash {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  color: white;
+  width: 18px;
+  height: 19px;
+}
+
+.grid__trash:hover {
+  cursor: pointer;
+  opacity: 0.6;
+}

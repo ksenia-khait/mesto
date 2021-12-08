@@ -7,6 +7,10 @@
   row-gap: 20px;
 }
 
+.grid {
+  cursor: pointer;
+}
+
 @media all and (max-width: 1279px) {
   .grid {
     display: flex;
@@ -15,3 +19,4 @@
     margin: 0 auto 48px;
   }
 }
+

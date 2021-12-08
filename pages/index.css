@@ -23,10 +23,14 @@
 /* GRID start */
 @import url("../blocks/grid/grid.css");
 @import url("../blocks/grid/__item/grid__item.css");
+
 @import url("../blocks/grid/__image/grid__image.css");
 @import url("../blocks/grid/__text-box/grid__text-box.css");
 @import url("../blocks/grid/__text/grid__text.css");
 @import url("../blocks/grid/__heart/grid__heart.css");
+@import url("../blocks/grid/__heart/_active/grid__heart_active.css");
+
+@import url("../blocks/grid/__trash/grid__trash.css");
 /* GRID end */
 
 /* FOOTER start */
@@ -45,3 +49,25 @@
 @import url("../blocks/form/__button/form__button.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
 /* POPUP end*/
+
+/*NEW-ITEM start*/
+@import url("../blocks/new-item/new-item.css");
+@import url("../blocks/new-item/__container/new-item__container.css");
+@import url("../blocks/new-item/__svg/new-item__svg.css");
+@import url("../blocks/new-item/__text/new-item__text.css");
+@import url("../blocks/new-item/_opened/new-item_opened.css");
+
+@import url("../blocks/new-item-form/new-item-form.css");
+@import url("../blocks/new-item-form/__name/new-item-form__name.css");
+@import url("../blocks/new-item-form/__capture/new-item-form__capture.css");
+@import url("../blocks/new-item-form/__button/new-item-form__button.css");
+/*NEW-ITEM end*/
+
+/**/
+@import url("../blocks/popup-image/popup-image.css");
+@import url("../blocks/popup-image/__container/popup-image__container.css");
+@import url("../blocks/popup-image/__svg/popup-image__svg.css");
+@import url("../blocks/popup-image/__image/popup-image__image.css");
+@import url("../blocks/popup-image/__capture/popup-image__capture.css");
+@import url("../blocks/popup-image/_opened/popup-image_opened.css");
+
