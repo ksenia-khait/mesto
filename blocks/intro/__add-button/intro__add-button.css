@@ -13,7 +13,7 @@
   opacity: 0.6;
 }
 
-@media all and (max-width: 1279px) {
+@media all and (max-width: 900px) {
   .intro__add-button {
     padding: 17px 130px;
   }

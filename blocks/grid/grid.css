@@ -11,7 +11,7 @@
   cursor: pointer;
 }
 
-@media all and (max-width: 1279px) {
+@media all and (max-width: 900px) {
   .grid {
     display: flex;
     flex-direction: column;

@@ -1,4 +1,4 @@
-.popup__svg {
+.popup__close {
   position: absolute;
   background: url("../../../images/cross.svg");
   width: 32px;
@@ -9,13 +9,13 @@
   border: 0;
 }
 
-.popup__svg:hover {
+.popup__close:hover {
   cursor: pointer;
   opacity: 0.6;
 }
 
 @media all and (max-width: 1279px) {
-  .popup__svg {
+  .popup__close {
     width: 20px;
     height: 20px;
     top: -36px;

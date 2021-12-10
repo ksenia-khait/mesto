@@ -9,7 +9,7 @@
   overflow-wrap: break-word;
 }
 
-@media all and (max-width: 1279px) {
+@media all and (max-width: 900px) {
   .intro__capture {
     font-size: 14px;
     line-height: 17px;
