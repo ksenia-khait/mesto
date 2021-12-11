@@ -2,32 +2,32 @@ const initialCards = [
   {
     name: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
-    alt: 'Картинка',
+    alt: 'Архыз',
   },
   {
     name: 'Челябинская область',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
-    alt: 'Картинка',
+    alt: 'Челябинск',
   },
   {
     name: 'Иваново',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
-    alt: 'Картинка',
+    alt: 'Иваново',
   },
   {
     name: 'Камчатка',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
-    alt: 'Картинка',
+    alt: 'Камчатка',
   },
   {
     name: 'Холмогорский район',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
-    alt: 'Картинка',
+    alt: 'Холмогорский район',
   },
   {
     name: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
-    alt: 'Картинка',
+    alt: 'Байкал',
   },
 ];
 
@@ -117,7 +117,7 @@ function handleProfileFormSubmit(event) {
   event.preventDefault();
   userName.textContent = nameInput.value;
   userCapture.textContent = jobInput.value;
-  profilePopup.classList.remove('popup_opened');
+  closePopup(profilePopup);
 }
 
 function handleLikeClick(likeButton) {
@@ -156,10 +156,6 @@ function getItem(item) {
 
   gridImg.addEventListener('click', () => {
     handleImageClick(gridImg, gridText);
-  });
-
-  closePopupButton.addEventListener('click', () => {
-    closePopup(imagePopup)
   });
 
   likeButton.addEventListener('click', () => {
