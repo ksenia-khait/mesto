@@ -7,7 +7,7 @@
   margin-bottom: 48px;
 }
 
-@media all and (max-width: 1279px) {
+@media all and (max-width: 900px) {
   .form__capture {
     margin-bottom: 45px;
   }

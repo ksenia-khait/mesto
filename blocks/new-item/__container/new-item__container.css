@@ -8,7 +8,7 @@
   position: relative;
 }
 
-@media all and (max-width: 1279px) {
+@media all and (max-width: 900px) {
   .new-item__container {
     max-width: 282px;
   }
