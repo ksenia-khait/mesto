@@ -84,6 +84,7 @@ addButton.addEventListener('click', function () {
 
 function handleImageClick(gridImg, gridText) {
   imgImage.src = gridImg.src;
+  imgImage.alt = gridText.textContent;
   imageCapture.textContent = gridText.textContent;
 
   openPopup(imagePopup);
@@ -144,7 +145,6 @@ function getItem(item) {
   const newItemEl = templateEl.content.cloneNode(true);
   const gridText = newItemEl.querySelector('.grid__text');
   const gridImg = newItemEl.querySelector('.grid__image');
-  const closePopupButton = document.querySelector('.popup__close');
   const removeCard = newItemEl.querySelector('.grid__trash');
   const likeButton = newItemEl.querySelector('.grid__heart');
 
