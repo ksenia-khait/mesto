@@ -17,6 +17,13 @@
   opacity: 0.8;
 }
 
+.form__button:invalid {
+  background-color: white;
+  color: #000000;
+  border-color: black;
+  opacity: 0.2;
+}
+
 @media all and (max-width: 900px) {
   .form__button {
     width: 238px;

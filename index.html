@@ -6,7 +6,7 @@
     <title>Место</title>
     <link rel="stylesheet" href="./pages/index.css"/>
     <script src="./scripts/script.js" defer></script>
-
+    <script src="./scripts/validate.js" defer></script>
 </head>
 
 <body class="background">
@@ -59,18 +59,28 @@
     <div class="popup__container">
         <button class="popup__close" id="cross"></button>
         <p class="popup__text">Редактировать профиль</p>
-        <form class="form profile-form" name="form">
+        <form class="form profile-form" name="form" novalidate>
             <input type="text"
-                   class="form__name profile-form__name"
+                   class="form__name profile-form__name form__input"
                    name="name"
+                   id="profile-name"
                    placeholder="Имя"
+                   minlength="2"
+                   maxlength="40"
+                   required
             />
+            <span id="profile-name-error" class="error"></span>
             <input
                     type="text"
-                    class="form__capture profile-form__capture"
+                    class="form__capture profile-form__capture form__input"
                     name="capture"
+                    id="profile-capture"
                     placeholder="О себе"
+                    minlength="2"
+                    maxlength="200"
+                    required
             />
+            <span id="profile-capture-error" class="error"></span>
             <input
                     type="submit"
                     class="form__button"
@@ -87,21 +97,27 @@
     <div class="new-item__container">
         <button class="new-item__close popup__close"></button>
         <p class="new-item__text">Новое место</p>
-        <form class="form new-item-form" name="form">
+        <form class="form new-item-form" name="form" novalidate>
             <input
                     type="text"
-                    class="form__name new-item-form__name"
+                    class="form__name new-item-form__name form__input"
                     name="name"
+                    id="card-name"
+                    minlength="2"
+                    maxlength="30"
                     placeholder="Название"
                     required
             />
+            <span id="card-name-error" class="error"></span>
             <input
-                    type="text"
-                    class="form__capture new-item-form__capture"
+                    type="url"
+                    class="form__capture new-item-form__capture form__input"
                     name="capture"
+                    id="image-link"
                     placeholder="Ссылку на картинку"
                     required
             />
+            <span id="image-link-error" class="error"></span>
             <input
                     type="submit"
                     class="form__button"
@@ -109,6 +125,7 @@
                     value="Создать"
                     required
             />
+
         </form>
     </div>
 </div>

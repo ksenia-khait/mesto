@@ -4,11 +4,11 @@
   font-size: 14px;
   line-height: 17px;
   padding: 0 0 13px;
-  margin-bottom: 48px;
+  /*margin-bottom: 48px;*/
 }
 
 @media all and (max-width: 900px) {
   .form__capture {
-    margin-bottom: 45px;
+    /*margin-bottom: 45px;*/
   }
 }

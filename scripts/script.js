@@ -76,6 +76,7 @@ closePopupImageButton.addEventListener('click', function () {
   closePopup(imagePopup);
 })
 
+
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', function () {
@@ -135,10 +136,18 @@ function render() {
 
 function openPopup(popup) {
   popup.classList.add('popup_opened');
+
+  document.addEventListener('keyup', function(evt) {
+    if (evt.key === 'Escape') {
+      closePopup(popup);
+    }
+  });
 }
 
 function closePopup(popup) {
   popup.classList.remove('popup_opened');
+  document.removeEventListener('keyup', function (evt) {
+  })
 }
 
 function getItem(item) {
@@ -164,3 +173,66 @@ function getItem(item) {
 
   return newItemEl;
 }
+
+const showError = (form, input, errorMessageText, errorMessageClass, inputErrorClass) => {
+  const errorMessage = form.querySelector(`#${input.id}-error`);
+
+  errorMessage.textContent = errorMessageText;
+  errorMessage.classList.add(errorMessageClass);
+
+  input.classList.add(inputErrorClass);
+}
+
+const hideError = (form, input, errorMessageClass, inputErrorClass) => {
+  const errorMessage = form.querySelector(`#${input.id}-error`);
+
+  errorMessage.textContent = '';
+  errorMessage.classList.add(errorMessageClass);
+
+  input.classList.add(inputErrorClass);
+}
+
+const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
+  if (!input.validity.valid) {
+    showError(form, input, input.validationMessage, errorClass, inputErrorClass);
+  } else {
+    hideError(form, input, errorClass, inputErrorClass);
+  }
+}
+
+const setInputListeners = (form, { inputSelector, submitButtonSelector, inactiveButtonClass, ...rest }) => {
+  const inputs = form.querySelectorAll(inputSelector);
+  const submitButton = form.querySelector(submitButtonSelector);
+  inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+
+      checkIfInputValid(form, input, rest);
+      toggleButtonError(inputs, submitButton, inactiveButtonClass);
+    });
+  });
+}
+
+const toggleButtonError = (inputs, submitButtonSelector, inactiveButtonClass) => {
+  if (hasInvalidInput(inputs)) {
+    submitButtonSelector.classList.add(inactiveButtonClass);
+    submitButtonSelector.disabled = true;
+  } else {
+    submitButtonSelector.classList.remove(inactiveButtonClass);
+    submitButtonSelector.disabled = false;
+  }
+};
+
+// ЗАКРЫТИЕ ПО КЛИКУ НА OVERLAY
+
+const closeByClickOnOverlay = (event, className) => {
+  if (!event.target.closest(className)) {
+    closePopup(event.target.closest('.popup'));
+  }
+}
+
+profilePopup.addEventListener('click', e => closeByClickOnOverlay(e, '.popup__container'));
+imagePopup.addEventListener('click', e => closeByClickOnOverlay(e, '.popup-image__container'));
+newItemPopup.addEventListener('click', e => closeByClickOnOverlay(e, '.new-item__container'));
+
+
+

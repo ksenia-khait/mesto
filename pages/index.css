@@ -46,6 +46,9 @@
 @import url("../blocks/form/__capture/form__capture.css");
 @import url("../blocks/form/__button/form__button.css");
 @import url("../blocks/popup/_opened/popup_opened.css");
+@import url("../blocks/form/__button/_inactive/form__button_inactive.css");
+
+@import url("../blocks/form/__input/form__input.css");
 /* POPUP end*/
 
 /*NEW-ITEM start*/
@@ -59,3 +62,4 @@
 @import url("../blocks/popup-image/__capture/popup-image__capture.css");
 /*POPUP-IMAGE end*/
 
+@import url("../blocks/error/error.css");

@@ -1,0 +1,15 @@
+.form__input {
+
+}
+
+/*.form__input:valid {*/
+/*    border-bottom: 1px solid black;*/
+/*}*/
+
+.form__input:invalid {
+    border-bottom: 1px solid #FF0000;
+}
+
+/*.form__input.form__input_type_error {*/
+/*    */
+/*}*/

@@ -4,5 +4,13 @@
   font-size: 14px;
   line-height: 17px;
   padding: 0 0 13px;
-  margin-bottom: 30px;
+  /*margin-bottom: 30px;*/
 }
+
+/*.form__name:invalid {*/
+/*  border-bottom: 1px solid #FF0000;*/
+/*}*/
+/*.form__name:valid {
+
+}*/
+
