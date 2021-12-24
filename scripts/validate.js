@@ -1,3 +1,57 @@
+const showError = (form, input, errorMessageText, errorMessageClass, inputErrorClass) => {
+  const errorMessage = form.querySelector(`#${input.id}-error`);
+
+  errorMessage.textContent = errorMessageText;
+  errorMessage.classList.add(errorMessageClass);
+
+  input.classList.add(inputErrorClass);
+}
+
+const hideError = (form, input, errorMessageClass, inputErrorClass) => {
+  const errorMessage = form.querySelector(`#${input.id}-error`);
+
+  errorMessage.textContent = '';
+  errorMessage.classList.add(errorMessageClass);
+
+  input.classList.add(inputErrorClass);
+}
+
+const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
+  if (!input.validity.valid) {
+    showError(form, input, input.validationMessage, errorClass, inputErrorClass);
+  } else {
+    hideError(form, input, errorClass, inputErrorClass);
+  }
+}
+
+const setInputListeners = (form, { inputSelector, submitButtonSelector, inactiveButtonClass, ...rest }) => {
+  const inputs = form.querySelectorAll(inputSelector);
+  const submitButton = form.querySelector(submitButtonSelector);
+  inputs.forEach((input) => {
+    input.addEventListener('input', () => {
+
+      checkIfInputValid(form, input, rest);
+      toggleButtonError(inputs, submitButton, inactiveButtonClass);
+    });
+  });
+}
+
+
+const toggleButtonError = (inputs, submitButtonSelector, inactiveButtonClass) => {
+  if (hasInvalidInput(inputs)) {
+    submitButtonSelector.classList.add(inactiveButtonClass);
+    submitButtonSelector.disabled = true;
+  } else {
+    submitButtonSelector.classList.remove(inactiveButtonClass);
+    submitButtonSelector.disabled = false;
+  }
+};
+
+
+
+
+
+
 const enableValidation = ({ formSelector, ...rest }) => {
   const forms = document.querySelectorAll(formSelector);
 
@@ -9,9 +63,11 @@ const enableValidation = ({ formSelector, ...rest }) => {
     setInputListeners(form, rest);
   });
 }
+
 const hasInvalidInput = (inputs) => {
   return Array.from(inputs).some((e) => e.validity.valid === false);
 }
+
 enableValidation({
   formSelector: '.form',
   inputSelector: '.form__input',
