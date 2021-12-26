@@ -36,10 +36,14 @@ const setInputListeners = (form, { inputSelector, submitButtonSelector, inactive
   });
 }
 
+function disableFormButton(button, inactiveButtonClass) {
+  button.classList.add(inactiveButtonClass);
+  button.disabled = true;
+}
+
 const toggleButtonError = (inputs, submitButtonSelector, inactiveButtonClass) => {
   if (hasInvalidInput(inputs)) {
-    submitButtonSelector.classList.add(inactiveButtonClass);
-    submitButtonSelector.disabled = true;
+    disableFormButton(submitButtonSelector, inactiveButtonClass)
   } else {
     submitButtonSelector.classList.remove(inactiveButtonClass);
     submitButtonSelector.disabled = false;

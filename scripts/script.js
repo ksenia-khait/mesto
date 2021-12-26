@@ -79,7 +79,8 @@ closePopupImageButton.addEventListener('click', function () {
   profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', function () {
-  newItemPopup.querySelector('.form__button').classList.add('form__button_inactive');
+  const newItemFormButton = newItemPopup.querySelector('.form__button');
+  disableFormButton(newItemFormButton, 'form__button_inactive')
   openPopup(newItemPopup);
 });
 
