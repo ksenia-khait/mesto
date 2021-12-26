@@ -76,8 +76,7 @@ closePopupImageButton.addEventListener('click', function () {
   closePopup(imagePopup);
 })
 
-
-profileForm.addEventListener('submit', handleProfileFormSubmit);
+  profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', function () {
   newItemPopup.querySelector('.form__button').classList.add('form__button_inactive');
