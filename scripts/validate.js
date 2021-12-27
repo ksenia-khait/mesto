@@ -16,7 +16,7 @@ const hideError = (form, input, errorMessageClass, inputErrorClass) => {
   input.classList.add(inputErrorClass);
 }
 
-const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
+const checkIfInputValid = (form, input, {inputErrorClass, errorClass}) => {
   if (!input.validity.valid) {
     showError(form, input, input.validationMessage, errorClass, inputErrorClass);
   } else {
@@ -24,7 +24,7 @@ const checkIfInputValid = (form, input, { inputErrorClass, errorClass }) => {
   }
 }
 
-const setInputListeners = (form, { inputSelector, submitButtonSelector, inactiveButtonClass, ...rest }) => {
+const setInputListeners = (form, {inputSelector, submitButtonSelector, inactiveButtonClass, ...rest}) => {
   const inputs = form.querySelectorAll(inputSelector);
   const submitButton = form.querySelector(submitButtonSelector);
   inputs.forEach((input) => {
@@ -48,29 +48,28 @@ const toggleButtonError = (inputs, submitButtonSelector, inactiveButtonClass) =>
     submitButtonSelector.classList.remove(inactiveButtonClass);
     submitButtonSelector.disabled = false;
   }
+}
+const enableValidation = ({formSelector, ...rest}) => {
+  const forms = document.querySelectorAll(formSelector);
 
-  const enableValidation = ({formSelector, ...rest}) => {
-    const forms = document.querySelectorAll(formSelector);
-
-    forms.forEach((form) => {
-      form.addEventListener('submit', (event) => {
-        event.preventDefault();
-      });
-
-      setInputListeners(form, rest);
+  forms.forEach((form) => {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
     });
-  }
 
-  const hasInvalidInput = (inputs) => {
-    return Array.from(inputs).some((e) => e.validity.valid === false);
-  }
-
-  enableValidation({
-    formSelector: '.form',
-    inputSelector: '.form__input',
-    submitButtonSelector: '.form__button',
-    inactiveButtonClass: 'form__button_inactive',
-    inputErrorClass: 'form__input_type_error',
-    errorClass: 'form__error_visible'
+    setInputListeners(form, rest);
   });
 }
+
+const hasInvalidInput = (inputs) => {
+  return Array.from(inputs).some((e) => e.validity.valid === false);
+}
+
+enableValidation({
+  formSelector: '.form',
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__error_visible'
+})
