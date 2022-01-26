@@ -1,50 +1,82 @@
+//
+//класс Card
+//
+
+import Card from './Card.js';
+import FormValidator from './FormValidator.js';
+
 const initialCards = [
   {
-    name: 'Архыз',
+    title: 'Архыз',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/arkhyz.jpg',
     alt: 'Архыз',
   },
   {
-    name: 'Челябинская область',
+    title: 'Челябинская область',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/chelyabinsk-oblast.jpg',
     alt: 'Челябинск',
   },
   {
-    name: 'Иваново',
+    title: 'Иваново',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/ivanovo.jpg',
     alt: 'Иваново',
   },
   {
-    name: 'Камчатка',
+    title: 'Камчатка',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kamchatka.jpg',
     alt: 'Камчатка',
   },
   {
-    name: 'Холмогорский район',
+    title: 'Холмогорский район',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/kholmogorsky-rayon.jpg',
     alt: 'Холмогорский район',
   },
   {
-    name: 'Байкал',
+    title: 'Байкал',
     link: 'https://pictures.s3.yandex.net/frontend-developer/cards-compressed/baikal.jpg',
     alt: 'Байкал',
   },
 ];
 
+//start Card
+const cardsSection = document.querySelector('.grid');
+
+const cards = initialCards.map(({title, link, alt}) => {
+  return new Card('.template', '.popup-image', '.popup-image__close',
+    title, link, alt);
+});
+
+const cardElements = cards.map(card => card.getElement())
+
+cardsSection.append(...cardElements);
+//end Card
+
+
+//start Validation
+const validationConfig = {
+  inputSelector: '.form__input',
+  submitButtonSelector: '.form__button',
+  inactiveButtonClass: 'form__button_inactive',
+  inputErrorClass: 'form__input_type_error',
+  errorClass: 'form__error_visible'
+};
+
+const editFormValidator = new FormValidator('.profile-form', validationConfig);
+const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
+
+editFormValidator.enableValidation();
+cardFormValidator.enableValidation();
+//end Validation
+
 const editProfileButton = document.querySelector('.intro__edit');
 
 const profilePopup = document.querySelector('.profile-popup');
-const imagePopup = document.querySelector('.popup-image');
 const newItemPopup = document.querySelector('.new-item');
-
-const imgImage = document.querySelector('.popup-image__image');
-const imageCapture = document.querySelector('.popup-image__capture');
 
 const addButton = document.querySelector('.intro__add-button');
 
 const closePopupButton = document.querySelector('.popup__close');
 const closeNewItemButton = document.querySelector('.new-item__close');
-const closePopupImageButton = document.querySelector('.popup-image__close');
 
 const profileForm = document.querySelector('.profile-form');
 const nameInput = document.querySelector('.profile-form__name');
@@ -60,8 +92,6 @@ const userCapture = document.querySelector('.intro__capture');
 const listContainerEl = document.querySelector('.grid');
 const templateEl = document.querySelector('.template');
 
-render();
-
 newItemForm.addEventListener('submit', handleAddCard);
 
 editProfileButton.addEventListener('click', handleEditProfileButtonClick);
@@ -72,42 +102,24 @@ closePopupButton.addEventListener('click', function () {
 closeNewItemButton.addEventListener('click', function () {
   closePopup(newItemPopup);
 })
-closePopupImageButton.addEventListener('click', function () {
-  closePopup(imagePopup);
-})
 
-  profileForm.addEventListener('submit', handleProfileFormSubmit);
+profileForm.addEventListener('submit', handleProfileFormSubmit);
 
 addButton.addEventListener('click', function () {
-  const newItemFormButton = newItemPopup.querySelector('.form__button');
-  disableFormButton(newItemFormButton, 'form__button_inactive')
   openPopup(newItemPopup);
 });
 
-function handleImageClick(gridImg, gridText) {
-  imgImage.src = gridImg.src;
-  imgImage.alt = gridText.textContent;
-  imageCapture.textContent = gridText.textContent;
-
-  openPopup(imagePopup);
-}
-
 function handleAddCard(event) {
   event.preventDefault();
-  const name = inputEl.value;
+  const title = inputEl.value;
   const link = inputElLink.value;
-  const card = getItem({name, link});
-  listContainerEl.prepend(card);
+  const card = new Card('.template', '.popup-image', '.popup-image__close',
+    title, link, title);
+  listContainerEl.prepend(card.getElement());
   inputEl.value = '';
   inputElLink.value = '';
 
   closePopup(newItemPopup);
-}
-
-function handleRemoveCard(event) {
-  const targetEl = event.target;
-  const listItem = targetEl.closest('.grid__item');
-  listItem.remove();
 }
 
 function handleEditProfileButtonClick() {
@@ -123,20 +135,8 @@ function handleProfileFormSubmit(event) {
   closePopup(profilePopup);
 }
 
-function handleLikeClick(likeButton) {
-  likeButton.classList.toggle('grid__heart_active');
-}
-
-function render() {
-  const html = initialCards.map((item) => {
-    return getItem(item);
-  });
-
-  listContainerEl.append(...html);
-}
-
 function closePopupByEsc(evt) {
-  if(evt.key === 'Escape') {
+  if (evt.key === 'Escape') {
     const openedPopup = document.querySelector('.popup_opened');
     closePopup(openedPopup);
   }
@@ -145,7 +145,6 @@ function closePopupByEsc(evt) {
 function openPopup(popup) {
   popup.classList.add('popup_opened');
   document.addEventListener('keyup', closePopupByEsc);
-
 }
 
 function closePopup(popup) {
@@ -153,31 +152,6 @@ function closePopup(popup) {
 
   document.removeEventListener('keyup', closePopupByEsc);
 }
-
-function getItem(item) {
-  const newItemEl = templateEl.content.cloneNode(true);
-  const gridText = newItemEl.querySelector('.grid__text');
-  const gridImg = newItemEl.querySelector('.grid__image');
-  const removeCard = newItemEl.querySelector('.grid__trash');
-  const likeButton = newItemEl.querySelector('.grid__heart');
-
-  gridImg.src = item.link;
-  gridImg.alt = item.alt;
-  gridText.textContent = item.name;
-
-  removeCard.addEventListener('click', handleRemoveCard);
-
-  gridImg.addEventListener('click', () => {
-    handleImageClick(gridImg, gridText);
-  });
-
-  likeButton.addEventListener('click', () => {
-    handleLikeClick(likeButton);
-  });
-
-  return newItemEl;
-}
-
 
 // ЗАКРЫТИЕ ПО КЛИКУ НА OVERLAY
 
@@ -188,8 +162,5 @@ const closeByClickOnOverlay = (event, className) => {
 }
 
 profilePopup.addEventListener('click', e => closeByClickOnOverlay(e, '.popup__container'));
-imagePopup.addEventListener('click', e => closeByClickOnOverlay(e, '.popup-image__container'));
 newItemPopup.addEventListener('click', e => closeByClickOnOverlay(e, '.new-item__container'));
-
-
 
