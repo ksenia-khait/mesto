@@ -1,9 +1,6 @@
-//
-//класс Card
-//
-
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
+
 
 const initialCards = [
   {
@@ -90,24 +87,21 @@ const userName = document.querySelector('.intro__name');
 const userCapture = document.querySelector('.intro__capture');
 
 const listContainerEl = document.querySelector('.grid');
-const templateEl = document.querySelector('.template');
 
 newItemForm.addEventListener('submit', handleAddCard);
-
 editProfileButton.addEventListener('click', handleEditProfileButtonClick);
-
 closePopupButton.addEventListener('click', function () {
   closePopup(profilePopup);
 });
 closeNewItemButton.addEventListener('click', function () {
   closePopup(newItemPopup);
 })
-
 profileForm.addEventListener('submit', handleProfileFormSubmit);
-
 addButton.addEventListener('click', function () {
   openPopup(newItemPopup);
 });
+profilePopup.addEventListener('click', e => closeByClickOnOverlay(e, '.popup__container'));
+newItemPopup.addEventListener('click', e => closeByClickOnOverlay(e, '.new-item__container'));
 
 function handleAddCard(event) {
   event.preventDefault();
@@ -153,14 +147,8 @@ function closePopup(popup) {
   document.removeEventListener('keyup', closePopupByEsc);
 }
 
-// ЗАКРЫТИЕ ПО КЛИКУ НА OVERLAY
-
-const closeByClickOnOverlay = (event, className) => {
+function closeByClickOnOverlay(event, className) {
   if (!event.target.closest(className)) {
     closePopup(event.target.closest('.popup'));
   }
 }
-
-profilePopup.addEventListener('click', e => closeByClickOnOverlay(e, '.popup__container'));
-newItemPopup.addEventListener('click', e => closeByClickOnOverlay(e, '.new-item__container'));
-
