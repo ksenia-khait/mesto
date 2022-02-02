@@ -6,7 +6,6 @@ class FormValidator {
     this._inactiveButtonClass = validationConfig.inactiveButtonClass;
     this._inputErrorClass = validationConfig.inputErrorClass;
     this._errorClass = validationConfig.errorClass;
-
   }
 
   _showError(input, errorMessageText) {
@@ -35,28 +34,27 @@ class FormValidator {
     }
   }
 
-  _hasInvalidInput = () => {
+  _hasAnyInvalidInput = () => {
     return this._inputs.some((e) => e.validity.valid === false);
   }
 
-  _disableFormButton(button) {
-    button.classList.add(this._inactiveButtonClass);
-    button.disabled = true;
+  _disableFormButton() {
+    this._submitButton.classList.add(this._inactiveButtonClass);
+    this._submitButton.disabled = true;
+  }
+
+  _enableFormButton() {
+    this._submitButton.classList.remove(this._inactiveButtonClass);
+    this._submitButton.disabled = false;
   }
 
   _toggleButtonError = () => {
-    if (this._hasInvalidInput(this._inputs)) {
-      this._disableFormButton(this._submitButton, this._inactiveButtonClass)
-    } else {
-      this._submitButton.classList.remove(this._inactiveButtonClass);
-      this._submitButton.disabled = false;
-    }
+    this._hasAnyInvalidInput() ? this._disableFormButton() : this._enableFormButton();
   }
 
   _setEventListeners() {
-    this._inputs.forEach((input) => {
+    this._inputs.forEach(input => {
       input.addEventListener('input', () => {
-
         this._checkIfInputValid(input);
         this._toggleButtonError();
       });
@@ -67,6 +65,13 @@ class FormValidator {
     this._form.addEventListener('submit', (event) => {
       event.preventDefault();
     });
+
+    this._toggleButtonError();
+
+    this._inputs.forEach(input => {
+      if (input.validity.valid)
+        this._hideError(input);
+    })
 
     this._setEventListeners();
   }

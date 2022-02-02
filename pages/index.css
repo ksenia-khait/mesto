@@ -48,7 +48,7 @@
 @import url("../blocks/popup/_opened/popup_opened.css");
 @import url("../blocks/form/__button/_inactive/form__button_inactive.css");
 
-@import url("../blocks/form/__input/form__input.css");
+@import url("../blocks/form/__input/form__input_type_error.css");
 /* POPUP end*/
 
 /*NEW-ITEM start*/

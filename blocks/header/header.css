@@ -1,14 +1,14 @@
 .header {
-  margin: 45px auto 36px;
-  max-width: 880px;
-  min-height: 74px;
-  border: none;
-  border-bottom: 1px solid #545454;
+    margin: 45px auto 36px;
+    max-width: 880px;
+    min-height: 74px;
+    border: none;
+    border-bottom: 1px solid #545454;
 }
 
 @media all and (max-width: 1279px) {
-  .header {
-    margin: 28px 0 38px;
-    min-height: 56px;
-  }
+    .header {
+        margin: 28px 0 38px;
+        min-height: 56px;
+    }
 }

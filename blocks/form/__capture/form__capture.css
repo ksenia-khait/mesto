@@ -1,14 +1,9 @@
 .form__capture {
-  border: none;
-  border-bottom: 1px solid rgba(0, 0, 0, 0.2);
-  font-size: 14px;
-  line-height: 17px;
-  padding: 0 0 13px;
-  /*margin-bottom: 48px;*/
+    border: none;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.2);
+    font-size: 14px;
+    line-height: 17px;
+    padding: 0 0 13px;
 }
 
-@media all and (max-width: 900px) {
-  .form__capture {
-    /*margin-bottom: 45px;*/
-  }
-}
+

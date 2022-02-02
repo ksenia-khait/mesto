@@ -1,12 +1,12 @@
 .intro__profile {
-  display: flex;
-  align-items: center;
+    display: flex;
+    align-items: center;
 }
 
 @media all and (max-width: 900px) {
-  .intro__profile {
-    display: flex;
-    flex-direction: column;
-    margin-bottom: 36px;
-  }
+    .intro__profile {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 36px;
+    }
 }

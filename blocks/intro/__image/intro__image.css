@@ -1,13 +1,13 @@
 .intro__image {
-  width: 128px;
-  border-radius: 50%;
-  margin-right: 41px;
+    width: 128px;
+    border-radius: 50%;
+    margin-right: 41px;
 }
 
 @media all and (max-width: 900px) {
-  .intro__image {
-    width: 128px;
-    height: 128px;
-    margin: 0 0 22px;
-  }
+    .intro__image {
+        width: 128px;
+        height: 128px;
+        margin: 0 0 22px;
+    }
 }
