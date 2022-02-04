@@ -59,6 +59,10 @@ class FormValidator {
         this._toggleButtonError();
       });
     });
+
+    this._form.addEventListener('reset', () => {
+      this._disableFormButton();
+    });
   }
 
   enableValidation() {
@@ -68,14 +72,8 @@ class FormValidator {
 
     this._toggleButtonError();
 
-    this._inputs.forEach(input => {
-      if (input.validity.valid)
-        this._hideError(input);
-    })
-
     this._setEventListeners();
   }
 }
 
 export default FormValidator;
-

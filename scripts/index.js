@@ -1,5 +1,7 @@
 import Card from './Card.js';
 import FormValidator from './FormValidator.js';
+import { closePopup, openPopup } from '../utils/utils.js';
+import { imagePopup } from '../utils/constants.js';
 
 const initialCards = [
   {
@@ -58,21 +60,18 @@ const validationConfig = {
 const editFormValidator = new FormValidator('.profile-form', validationConfig);
 const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
 
+editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
+
+const inputEvent = new Event('input');
 
 //end Validation
 
 const editProfileButton = document.querySelector('.intro__edit');
 const addButton = document.querySelector('.intro__add-button');
 
-// openImagePopup.addEventListener('click', handleOpenImagePopup);
-
 const profilePopup = document.querySelector('.profile-popup');
 const newItemPopup = document.querySelector('.new-item');
-export const imagePopup = document.querySelector('.popup-image');
-
-export const image = imagePopup.querySelector('.popup-image__image');
-export const capture = imagePopup.querySelector('.popup-image__capture');
 
 const closePopupButton = document.querySelector('.popup__close');
 const closeNewItemButton = document.querySelector('.new-item__close');
@@ -94,9 +93,9 @@ const listContainerEl = document.querySelector('.grid');
 newItemForm.addEventListener('submit', handleAddCard);
 editProfileButton.addEventListener('click', handleEditProfileButtonClick);
 
-closePopupButton.addEventListener('click', e => closePopup(profilePopup));
-closeNewItemButton.addEventListener('click', e => closePopup(newItemPopup));
-closeImageButton.addEventListener('click', e => closePopup(imagePopup));
+closePopupButton.addEventListener('click', () => closePopup(profilePopup));
+closeNewItemButton.addEventListener('click', () => closePopup(newItemPopup));
+closeImageButton.addEventListener('click', () => closePopup(imagePopup));
 
 profileForm.addEventListener('submit', handleProfileFormSubmit);
 addButton.addEventListener('click', function () {
@@ -112,28 +111,14 @@ function createCard(title, link, alt) {
     title, link, alt);
 }
 
-// function handleOpenImagePopup() {
-//   const image = document.querySelector('.popup-image__image');
-//   const capture = document.querySelector('.popup-image__capture');
-//
-//   image.src = this._link;
-//   image.alt = this._alt;
-//
-//   capture.textContent = this._title;
-//
-//   this._popup.classList.add('popup_opened')
-//
-//   document.addEventListener('keyup', closePopupByEsc);
-// }
-
 function handleAddCard(event) {
   event.preventDefault();
   const title = inputEl.value;
   const link = inputElLink.value;
   const card = createCard(title, link, title);
   listContainerEl.prepend(card.getElement());
-  inputEl.value = '';
-  inputElLink.value = '';
+
+  newItemForm.reset();
 
   closePopup(newItemPopup);
 }
@@ -141,7 +126,10 @@ function handleAddCard(event) {
 function handleEditProfileButtonClick() {
   nameInput.value = userName.textContent;
   jobInput.value = userCapture.textContent;
-  editFormValidator.enableValidation();
+
+  nameInput.dispatchEvent(inputEvent);
+  jobInput.dispatchEvent(inputEvent);
+
   openPopup(profilePopup);
 }
 
@@ -150,23 +138,6 @@ function handleProfileFormSubmit(event) {
   userName.textContent = nameInput.value;
   userCapture.textContent = jobInput.value;
   closePopup(profilePopup);
-}
-
-function closePopupByEsc(event) {
-  if(event.key === 'Escape') {
-    const openedPopup = document.querySelector('.popup_opened');
-    closePopup(openedPopup);
-  }
-}
-
-export function openPopup(popup) {
-  popup.classList.add('popup_opened');
-  document.addEventListener('keyup', closePopupByEsc);
-}
-
-function closePopup(popup) {
-  popup.classList.remove('popup_opened');
-  document.removeEventListener('keyup', closePopupByEsc);
 }
 
 function closeByClickOnOverlay(event, className) {

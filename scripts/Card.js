@@ -1,5 +1,5 @@
-import { openPopup, imagePopup, capture, image } from './index.js';
-
+import { openPopup } from '../utils/utils.js';
+import {image, capture, imagePopup} from '../utils/constants.js';
 
 export default class Card {
   constructor(templateSelector, popupSelector, popupCloseSelector, title, link, alt) {
@@ -7,7 +7,6 @@ export default class Card {
     this._title = title;
     this._link = link;
     this._alt = alt;
-    // this._popup = document.querySelector(popupSelector);
     this._element = this._getTemplate();
     this._cardImage = this._element.querySelector('.grid__image');
 
