@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Место</title>
+  <script type="module" src="index.js" defer></script>
+
+</head>
+
+<body class="background">
+<div class="page">
+  <!--HEADER start-->
+  <header class="header">
+    <div class="header__logo"></div>
+  </header>
+  <!--HEADER end-->
+  <main class="content">
+    <!--INTRO start-->
+    <section class="intro">
+      <div class="intro__profile">
+        <img src="<%=require('./assets/images/image.jpg')%>" alt="Фото" class="intro__image"/>
+        <div class="intro__description">
+          <div class="intro__name-box">
+            <h1 class="intro__name">Жак-Ив Кусто</h1>
+            <button class="intro__edit"></button>
+          </div>
+          <p class="intro__capture">Исследователь океана</p>
+        </div>
+      </div>
+
+      <button class="intro__add-button"></button>
+    </section>
+    <!--GRID-->
+
+    <section class="grid">
+      <template class="template">
+        <div class="grid__item">
+          <img src="<%=require('./assets/images/Trash.svg')%>" alt="Корзина" class="grid__trash"/>
+          <img class="grid__image"/>
+          <div class="grid__text-box">
+            <h2 class="grid__text"></h2>
+            <button class="grid__heart"></button>
+          </div>
+        </div>
+      </template>
+    </section>
+  </main>
+  <!--FOOTER start-->
+  <footer class="footer">
+    <p class="footer__copyright">&copy;2021. Mesto Russia</p>
+  </footer>
+  <!--FOOTER end-->
+</div>
+
+<!--POPUP start-->
+<div class="popup profile-popup">
+  <div class="popup__container container">
+    <button class="popup__close" id="cross"></button>
+    <p class="popup__text">Редактировать профиль</p>
+    <form class="form profile-form" name="form" novalidate>
+      <input type="text"
+             class="form__name profile-form__name form__input"
+             name="name"
+             id="profile-name"
+             placeholder="Имя"
+             minlength="2"
+             maxlength="40"
+             required
+      />
+      <span id="profile-name-error" class="error"></span>
+      <input
+        type="text"
+        class="form__capture profile-form__capture form__input"
+        name="capture"
+        id="profile-capture"
+        placeholder="О себе"
+        minlength="2"
+        maxlength="200"
+        required
+      />
+      <span id="profile-capture-error" class="error"></span>
+      <input
+        type="submit"
+        class="form__button"
+        name="button"
+        value="Сохранить"
+      />
+    </form>
+  </div>
+</div>
+<!--POPUP end-->
+
+<!--NEW-ITEM start-->
+<div class="new-item popup">
+  <div class="new-item__container container">
+    <button class="new-item__close popup__close"></button>
+    <p class="new-item__text">Новое место</p>
+    <form class="form new-item-form" name="form" novalidate>
+      <input
+        type="text"
+        class="form__name new-item-form__name form__input"
+        name="name"
+        id="card-name"
+        minlength="2"
+        maxlength="30"
+        placeholder="Название"
+        required
+      />
+      <span id="card-name-error" class="error"></span>
+      <input
+        type="url"
+        class="form__capture new-item-form__capture form__input"
+        name="src"
+        id="image-link"
+        placeholder="Ссылку на картинку"
+        required
+      />
+      <span id="image-link-error" class="error"></span>
+      <input
+        type="submit"
+        class="form__button"
+        name="button"
+        value="Создать"
+      />
+
+    </form>
+  </div>
+</div>
+<!--NEW-ITEM end-->
+
+<!--POPUP-IMAGE start-->
+<div class="popup popup-image">
+  <div class="popup-image__container container">
+    <button class="popup-image__close popup__close"></button>
+    <img alt="#" class="popup-image__image" src="#"/>
+    <p class="popup-image__capture"></p>
+  </div>
+</div>
+<!--POPUP-IMAGE end-->
+</body>
+</html>
