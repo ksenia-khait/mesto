@@ -6,6 +6,7 @@ export default class Card {
         this._alt = alt;
         this._element = this._getTemplate();
         this._cardImage = this._element.querySelector('.grid__image');
+        this._likeButton = this._element.querySelector('.grid__heart');
         this._handleCardClick = handleCardClick;
 
         this._createElement();
@@ -34,12 +35,12 @@ export default class Card {
     }
 
     _handleLike() {
-        this._element.querySelector('.grid__heart').classList.toggle('grid__heart_active')
+        this._likeButton.classList.toggle('grid__heart_active')
     }
 
     _setEventListeners() {
 
-        this._element.querySelector('.grid__heart').addEventListener('click', () => {
+        this._likeButton.addEventListener('click', () => {
             this._handleLike();
         });
 

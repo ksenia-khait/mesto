@@ -24,7 +24,7 @@ export default class Popup {
 
     _closeByClickOnOverlay(event, className) {
         if (!event.target.closest(className)) {
-            this.close(event.target.closest('.popup'));
+            this.close();
         }
     }
 

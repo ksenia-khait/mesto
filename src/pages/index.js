@@ -8,16 +8,10 @@ import PopupWithImage from '../components/PopupWithImage.js';
 import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from "../components/UserInfo.js";
 
-// const validationConfig = {
-//     inputSelector: '.form__input',
-//     submitButtonSelector: '.form__button',
-//     inactiveButtonClass: 'form__button_inactive',
-//     inputErrorClass: 'form__input_type_error',
-//     errorClass: 'form__error_visible'
-// };
-
 const editProfileButton = document.querySelector('.intro__edit');
 const addButton = document.querySelector('.intro__add-button');
+const titleInputValue = document.querySelector('.profile-form__name');
+const captureInputValue = document.querySelector('.profile-form__capture');
 
 const editFormValidator = new FormValidator('.profile-form', validationConfig);
 const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
@@ -33,8 +27,7 @@ const popupWithProfileForm = new PopupWithForm('.profile-popup', handleProfileSu
 
 editProfileButton.addEventListener('click', () => {
     const info = userInfo.getUserInfo();
-    const titleInputValue = document.querySelector('.profile-form__name');
-    const captureInputValue = document.querySelector('.profile-form__capture');
+
     titleInputValue.value = info.title;
     captureInputValue.value = info.capture;
 
