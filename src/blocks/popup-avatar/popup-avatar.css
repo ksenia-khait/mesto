@@ -1,3 +1,17 @@
 .popup-avatar {
 
 }
+
+.popup-avatar__text {
+
+}
+
+@media all and (max-width: 900px) {
+    .popup-avatar__text {
+        display: flex;
+        flex-direction: column;
+        margin-bottom: 48px;
+        width: 282px;
+        height: 200px;
+    }
+}

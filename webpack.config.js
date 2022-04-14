@@ -34,7 +34,7 @@ module.exports = {
         }),
         new MiniCssExtractPlugin(),
     ],
-    // devServer: {
-    //     open: true,
-    // }
+    devServer: {
+        open: true,
+    }
 };

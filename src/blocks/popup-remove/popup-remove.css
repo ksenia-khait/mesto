@@ -1,3 +1,34 @@
 .popup-remove {
     
 }
+
+.remove-popup__text {
+
+}
+
+@media all and (max-width: 900px) {
+    .remove-popup__text {
+        margin-bottom: 24px;
+        margin-left: 24px;
+    }
+}
+
+.remove-popup__button {
+
+}
+
+@media all and (max-width: 900px) {
+    .remove-popup__button {
+        margin-bottom: 32px;
+    }
+}
+
+.remove-popup__form {
+
+}
+
+@media all and (max-width: 900px) {
+    .remove-popup__form {
+        margin-bottom: 32px;
+    }
+}

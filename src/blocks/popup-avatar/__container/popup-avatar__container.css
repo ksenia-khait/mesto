@@ -9,3 +9,13 @@
     margin: 0;
 
 }
+
+@media all and (max-width: 900px) {
+    .popup-avatar__container {
+        display: flex;
+        flex-direction: column;
+
+        width: 282px;
+        height: 250px;
+    }
+}

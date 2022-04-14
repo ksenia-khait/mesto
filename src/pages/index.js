@@ -47,6 +47,7 @@ const avatarInputValue = document.querySelector('.new-item-form__capture');
 
 const editFormValidator = new FormValidator('.profile-form', validationConfig);
 const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
+const validateAvatarEdit = new FormValidator('.remove-popup__form', validationConfig)
 const userInfo = new UserInfo({
     userNameSelector: '.intro__name',
     userInfoSelector: '.intro__capture',
@@ -70,7 +71,7 @@ editProfileButton.addEventListener('click', () => {
 function handleProfileSubmit({name, capture}) {
     api.editProfile(name, capture)
         .then(res => {
-            userInfo.setUserInfo(name, capture);
+            userInfo.setUserInfo(res.name, res.about, res.avatar);
         })
 }
 
@@ -85,6 +86,7 @@ addButton.addEventListener('click', () => {
 
 // все по карточкам
 function handleNewItemSubmit({name, src}) {
+    popupWithProfileForm.renderLoading(true);
     api.addCard(name, src)
         .then(res => {
             renderCard({
@@ -96,10 +98,14 @@ function handleNewItemSubmit({name, src}) {
                 ownerId: res.owner._id
             });
         })
+        .finally(() => {
+            popupWithProfileForm.renderLoading(false)
+        });
 }
 
 
 function createCard(data) {
+
     const card = new Card(
         data,
         '.template',
@@ -155,8 +161,6 @@ function handleEditAvatar(avatar) {
 
     api.editAvatar(avatar)
         .then(res => {
-            console.log('res', res)
-            console.log('в IndexJs', res)
             userInfo.setUserInfo(res.name, res.about, res.avatar)
             avatarPopup.close()
         })
@@ -170,10 +174,8 @@ function handleEditAvatar(avatar) {
 editAvatarButton.addEventListener('click', () => {
     const avatarInfo = userInfo.getUserInfo();
     avatarInputValue.src = avatarInfo.avatar;
+    validateAvatarEdit.enableValidation()
 
     avatarPopup.open();
 })
-
-avatarPopup.setEventListeners()
-
 
