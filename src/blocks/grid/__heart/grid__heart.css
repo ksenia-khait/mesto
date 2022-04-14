@@ -4,6 +4,7 @@
   border: 0;
   width: 22px;
   height: 19px;
+  margin-bottom: 3px;
 }
 
 .grid__heart:hover {

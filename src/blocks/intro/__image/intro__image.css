@@ -1,5 +1,9 @@
 .intro__image {
+    background-image: url("../../../assets/images/image.jpg");
+
     width: 128px;
+    height: 128px;
+    background-size: cover;
     border-radius: 50%;
     margin-right: 41px;
 }

@@ -17,13 +17,16 @@
     <!--INTRO start-->
     <section class="intro">
       <div class="intro__profile">
-        <img src="<%=require('./assets/images/image.jpg')%>" alt="Фото" class="intro__image"/>
+        <!--     alt="Фото" src="<%=require('./assets/images/image.jpg')%>"   -->
+        <div  class="intro__image">
+          <div class="intro__image_hovered"></div>
+        </div>
         <div class="intro__description">
           <div class="intro__name-box">
-            <h1 class="intro__name">Жак-Ив Кусто</h1>
+            <h1 class="intro__name"></h1>
             <button class="intro__edit"></button>
           </div>
-          <p class="intro__capture">Исследователь океана</p>
+          <p class="intro__capture"></p>
         </div>
       </div>
 
@@ -34,11 +37,16 @@
     <section class="grid">
       <template class="template">
         <div class="grid__item">
+          <!--          -->
           <img src="<%=require('./assets/images/Trash.svg')%>" alt="Корзина" class="grid__trash"/>
           <img class="grid__image"/>
           <div class="grid__text-box">
             <h2 class="grid__text"></h2>
-            <button class="grid__heart"></button>
+            <div class="grid__heart-container">
+              <button class="grid__heart"></button>
+              <span class="grid__heart_counter"></span>
+            </div>
+
           </div>
         </div>
       </template>
@@ -136,5 +144,51 @@
   </div>
 </div>
 <!--POPUP-IMAGE end-->
+
+<!--POPUP-CardRemoval start-->
+<div class="popup popup-remove ">
+  <div class="popup-remove__container container">
+    <button class="popup__close"></button>
+    <p class="popup__text">Вы уверены?</p>
+    <form class="form profile-form" name="form">
+      <input
+              type="submit"
+              class="form__button"
+              name="button"
+              value="Да"
+      />
+    </form>
+  </div>
+</div>
+<!--POPUP-CardRemoval end-->
+
+<!--Popup-Avatar start-->
+<div class="popup-avatar popup">
+  <div class="popup-avatar__container container">
+    <button class="new-item__close popup__close"></button>
+    <p class="new-item__text">Обновить аватар</p>
+    <form class="form new-item-form" name="form" novalidate>
+      <input
+              type="url"
+              class="form__capture new-item-form__capture form__input "
+              name="src"
+              id="avatar-link"
+              placeholder="Ссылку на картинку"
+              required
+      />
+
+      <span id="avatar-link-error" class="error"></span>
+
+      <input
+              type="submit"
+              class="form__button"
+              name="button"
+              value="Сохранить"
+      />
+    </form>
+  </div>
+</div>
+<!--Popup-Avatar end-->
+
 </body>
 </html>

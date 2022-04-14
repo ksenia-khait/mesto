@@ -12,6 +12,7 @@
 @import url("../blocks/intro/intro.css");
 @import url("../blocks/intro/__profile/intro__profile.css");
 @import url("../blocks/intro/__image/intro__image.css");
+@import url("../blocks/intro/__image/_hovered/intro__image_hovered.css");
 @import url("../blocks/intro/__description/intro__description.css");
 @import url("../blocks/intro/__name-box/intro__name-box.css");
 @import url("../blocks/intro/__name/intro__name.css");
@@ -25,10 +26,13 @@
 @import url("../blocks/grid/__item/grid__item.css");
 @import url("../blocks/grid/__image/grid__image.css");
 @import url("../blocks/grid/__text-box/grid__text-box.css");
+@import url("../blocks/grid/__heart-container/grid__heart-container.css");
+@import url("../blocks/grid/__heart-counter/grid__heart-counter.css");
 @import url("../blocks/grid/__text/grid__text.css");
 @import url("../blocks/grid/__heart/grid__heart.css");
 @import url("../blocks/grid/__heart/_active/grid__heart_active.css");
 @import url("../blocks/grid/__trash/grid__trash.css");
+
 /* GRID end */
 
 /* FOOTER start */
@@ -62,4 +66,13 @@
 @import url("../blocks/popup-image/__capture/popup-image__capture.css");
 /*POPUP-IMAGE end*/
 
+/*POPUP-removal*/
+@import url('../blocks/popup-remove/popup-remove.css');
+@import url('../blocks/popup-remove/__container/popup-remove__container.css');
+/*POPUP-removal*/
+
+/*Popup-avatar*/
+@import url('../blocks/popup-avatar/popup-avatar.css');
+@import url("../blocks/popup-avatar/__container/popup-avatar__container.css");
+/*Popup-avatar*/
 @import url("../blocks/error/error.css");
