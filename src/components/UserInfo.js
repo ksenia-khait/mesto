@@ -10,18 +10,16 @@ export default class UserInfo {
         return {
             title: this._userName.textContent,
             capture: this._userInfo.textContent,
-            url: this._userInfo.src
+            avatar: this._avatar.url
         }
     }
 
-    setUserInfo(userName, userInfo) {
+    setUserInfo(userName, userInfo, avatar) {
         this._userName.textContent = userName;
         this._userInfo.textContent = userInfo;
-
-    }
-
-    setAvatar(avatar) {
-        this._avatar.style.backgroundImage = `url(${avatar})`;
+        this._avatar.style.backgroundImage = avatar;
     }
 
 }
+
+//`url(${avatar})`

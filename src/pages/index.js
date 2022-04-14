@@ -11,11 +11,12 @@ import {api} from "../components/Api.js";
 
 
 let userId;
-
+let urlAvatar;
 
 api.getProfile()
     .then(res => {
-        userInfo.setUserInfo(res.name, res.about)
+        userInfo.setUserInfo(res.name, res.about, res.avatar)
+        urlAvatar = res.avatar;
         userId = res._id
     })
 
@@ -29,6 +30,7 @@ api.getInitialCards()
                 id: data._id,
                 userId: userId,
                 ownerId: data.owner._id,
+                avatar: data.avatar
             })
 
             section.addItem(card.getCardElement())
@@ -146,23 +148,24 @@ section.renderItems();
 
 //Редактируем Аватар
 
-const avatarPopup = new PopupWithForm('.popup-avatar');
+const avatarPopup = new PopupWithForm('.popup-avatar', handleEditAvatar);
 
-avatarPopup.handleChangeSubmit((avatar) => {
+function handleEditAvatar(avatar) {
     avatarPopup.renderLoading(true);
 
-    api.editAvatar(avatar.avatar)
+    api.editAvatar(avatar)
         .then(res => {
-            console.log('в IndexJs', res)
-            userInfo.setAvatar(avatar)
-            avatarPopup.close()
+            console.log('res', res)
+            // console.log('в IndexJs', res)
+            // userInfo.setUserInfo(res.name, res.about, res.avatar)
+            // avatarPopup.close()
         })
         .catch(console.log)
         .finally(() => {
             avatarPopup.renderLoading(false)
         });
 
-})
+}
 
 editAvatarButton.addEventListener('click', () => {
     const avatarInfo = userInfo.getUserInfo();
