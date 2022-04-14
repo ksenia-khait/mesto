@@ -39,7 +39,7 @@ api.getInitialCards()
 
 
 const editProfileButton = document.querySelector('.intro__edit');
-const editAvatarButton = document.querySelector('.intro__image_hovered');
+const editAvatarButton = document.querySelector('.intro__image-hovered');
 const addButton = document.querySelector('.intro__add-button');
 const titleInputValue = document.querySelector('.profile-form__name');
 const captureInputValue = document.querySelector('.profile-form__capture');
