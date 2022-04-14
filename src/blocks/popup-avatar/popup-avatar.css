@@ -2,12 +2,12 @@
 
 }
 
-.popup-avatar-text {
+.popup-avatar__text {
 
 }
 
 @media all and (max-width: 900px) {
-    .popup-avatar-text {
+    .popup-avatar__text {
         display: flex;
         flex-direction: column;
         margin-bottom: 48px;

@@ -9,7 +9,7 @@ export default class PopupWithForm extends Popup {
         this._inputValues = {};
         this._submitButton = this._form.querySelector('.form__button');
         this._isLoadingText = this._submitButton.textContent;
-        console.log('setEventListeners', this._form)
+       
         this.setEventListeners();
     }
 

@@ -47,7 +47,7 @@ const avatarInputValue = document.querySelector('.new-item-form__capture');
 
 const editFormValidator = new FormValidator('.profile-form', validationConfig);
 const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
-const validateAvatarEdit = new FormValidator('.remove-popup__form', validationConfig)
+const validateAvatarEdit = new FormValidator('.avatar-popup-form', validationConfig)
 const userInfo = new UserInfo({
     userNameSelector: '.intro__name',
     userInfoSelector: '.intro__capture',
@@ -78,6 +78,7 @@ function handleProfileSubmit({name, capture}) {
 
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
+validateAvatarEdit.enableValidation();
 
 const popupWithNewItemForm = new PopupWithForm('.new-item', handleNewItemSubmit);
 addButton.addEventListener('click', () => {
@@ -174,8 +175,7 @@ function handleEditAvatar(avatar) {
 editAvatarButton.addEventListener('click', () => {
     const avatarInfo = userInfo.getUserInfo();
     avatarInputValue.src = avatarInfo.avatar;
-    validateAvatarEdit.enableValidation()
-
     avatarPopup.open();
+
 })
 

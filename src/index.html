@@ -149,11 +149,11 @@
 <div class="popup popup-remove ">
   <div class="popup-remove__container container">
     <button class="popup__close"></button>
-    <p class="popup__text remove-popup-text">Вы уверены?</p>
-    <form class="form profile-form" name="form">
+    <p class="popup__text remove-popup__text">Вы уверены?</p>
+    <form class="form profile-form remove-popup__form" name="form">
       <input
               type="submit"
-              class="form__button remove-popup-button"
+              class="form__button"
               name="button"
               value="Да"
       />
@@ -166,8 +166,8 @@
 <div class="popup-avatar popup">
   <div class="popup-avatar__container container">
     <button class="new-item__close popup__close"></button>
-    <p class="new-item__text popup-avatar-text">Обновить аватар</p>
-    <form class="form new-item-form remove-popup-form" name="form" novalidate>
+    <p class="new-item__text popup-avatar__text">Обновить аватар</p>
+    <form class="form new-item-form avatar-popup-form" name="form" novalidate>
       <input
               type="url"
               class="form__capture new-item-form__capture form__input "
