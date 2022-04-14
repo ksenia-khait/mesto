@@ -69,6 +69,8 @@
 /*POPUP-remove*/
 @import url('../blocks/popup-remove/popup-remove.css');
 @import url('../blocks/popup-remove/__container/popup-remove__container.css');
+@import url('../blocks/popup-remove/__text/popup-remove__text.css');
+
 /*POPUP-removal*/
 
 /*Popup-avatar*/
