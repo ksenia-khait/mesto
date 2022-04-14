@@ -76,5 +76,6 @@
 /*Popup-avatar*/
 @import url('../blocks/popup-avatar/popup-avatar.css');
 @import url("../blocks/popup-avatar/__container/popup-avatar__container.css");
+@import url('../blocks/popup-avatar/__text/popup-avatar__text.css');
 /*Popup-avatar*/
 @import url("../blocks/error/error.css");
