@@ -23,12 +23,12 @@
     }
 }
 
-.remove-popup__form {
+.remove-popup-form {
 
 }
 
 @media all and (max-width: 900px) {
-    .remove-popup__form {
+    .remove-popup-form {
         margin-bottom: 32px;
     }
 }
