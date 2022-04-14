@@ -156,9 +156,9 @@ function handleEditAvatar(avatar) {
     api.editAvatar(avatar)
         .then(res => {
             console.log('res', res)
-            // console.log('в IndexJs', res)
-            // userInfo.setUserInfo(res.name, res.about, res.avatar)
-            // avatarPopup.close()
+            console.log('в IndexJs', res)
+            userInfo.setUserInfo(res.name, res.about, res.avatar)
+            avatarPopup.close()
         })
         .catch(console.log)
         .finally(() => {
