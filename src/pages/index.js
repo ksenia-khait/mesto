@@ -8,7 +8,6 @@ import PopupWithForm from '../components/PopupWithForm.js';
 import UserInfo from "../components/UserInfo.js";
 import {api} from "../components/Api.js";
 
-
 let userId;
 
 
@@ -37,37 +36,12 @@ Promise.all([api.getProfile(), api.getInitialCards()])
         console.log(`Ошибка: ${err}`)
     });
 
-// api.getProfile()
-//     .then(res => {
-//         userInfo.setUserInfo(res.name, res.about, res.avatar)
-//         userId = res._id
-//     })
-//     .catch(console.log)
-//
-// api.getInitialCards()
-//     .then(cardList => {
-//         cardList.reverse().forEach(data => {
-//             const card = createCard({
-//                 name: data.name,
-//                 link: data.link,
-//                 likes: data.likes,
-//                 id: data._id,
-//                 userId: userId,
-//                 ownerId: data.owner._id,
-//                 avatar: data.avatar
-//             })
-//
-//             section.addItem(card.getCardElement())
-//         })
-//     })
-//     .catch(console.log)
-
-
 const editProfileButton = document.querySelector('.intro__edit');
 const editAvatarButton = document.querySelector('.intro__image-hovered');
 const addButton = document.querySelector('.intro__add-button');
 const titleInputValue = document.querySelector('.profile-form__name');
 const captureInputValue = document.querySelector('.profile-form__capture');
+
 
 const editFormValidator = new FormValidator('.profile-form', validationConfig);
 const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
@@ -80,7 +54,7 @@ const userInfo = new UserInfo({
 const popupWithImage = new PopupWithImage('.popup-image');
 const popupWithProfileForm = new PopupWithForm('.profile-popup', handleProfileSubmit);
 const popupRemove = new PopupWithForm('.popup-remove');
-popupRemove.setEventListeners()
+
 
 editProfileButton.addEventListener('click', () => {
     const info = userInfo.getUserInfo();
@@ -91,7 +65,6 @@ editProfileButton.addEventListener('click', () => {
     popupWithProfileForm.open();
 });
 
-
 function handleProfileSubmit({name, capture}) {
     popupWithProfileForm.renderLoading(true);
 
@@ -100,12 +73,13 @@ function handleProfileSubmit({name, capture}) {
             userInfo.setUserInfo(res.name, res.about, res.avatar);
             popupWithProfileForm.close()
         })
-        .catch(console.log)
+        .catch((err) => {
+            console.log(`Ошибка: ${err}`)
+        })
         .finally(() => {
             popupWithProfileForm.renderLoading(false)
         });
 }
-
 
 editFormValidator.enableValidation();
 cardFormValidator.enableValidation();
@@ -131,13 +105,13 @@ function handleNewItemSubmit({name, src}) {
             });
             popupWithNewItemForm.close()
         })
-        .catch(console.log)
+        .catch((err) => {
+            console.log(`Ошибка: ${err}`)
+        })
         .finally(() => {
             popupWithNewItemForm.renderLoading(false)
-
         });
 }
-
 
 function createCard(data) {
 
@@ -153,7 +127,9 @@ function createCard(data) {
                         card.removeCard()
                         popupRemove.close()
                     })
-                    .catch(console.log)
+                    .catch((err) => {
+                        console.log(`Ошибка: ${err}`)
+                    })
             })
         },
         (id) => {
@@ -162,13 +138,17 @@ function createCard(data) {
                     .then(res => {
                         card.setLikes(res.likes)
                     })
-                    .catch(console.log)
+                    .catch((err) => {
+                        console.log(`Ошибка: ${err}`)
+                    })
             } else {
                 api.addLike(id)
                     .then(res => {
                         card.setLikes(res.likes)
                     })
-                    .catch(console.log)
+                    .catch((err) => {
+                        console.log(`Ошибка: ${err}`)
+                    })
             }
         }
     );
@@ -188,7 +168,6 @@ const section = new Section({
     '.grid'
 );
 
-
 //Редактируем Аватар
 const avatarPopup = new PopupWithForm('.popup-avatar', handleEditAvatar);
 
@@ -200,7 +179,9 @@ function handleEditAvatar(avatar) {
             userInfo.setUserInfo(res.name, res.about, res.avatar)
             avatarPopup.close()
         })
-        .catch(console.log)
+        .catch((err) => {
+            console.log(`Ошибка: ${err}`)
+        })
         .finally(() => {
             avatarPopup.renderLoading(false)
         });
