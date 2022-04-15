@@ -9,7 +9,6 @@ export default class Card {
         this._userId = data.userId;
         this._ownerId = data.ownerId;
 
-
         this._handleCardClick = handleCardClick;
         this._handleDeleteClick = handleDeleteClick;
         this._handleLikeClick = handleLikeClick;
@@ -21,8 +20,10 @@ export default class Card {
         this._likeButton = this._cardElement.querySelector('.grid__heart');
         this._cardImage = this._cardElement.querySelector('.grid__image');
         this._trash = this._cardElement.querySelector('.grid__trash');
+        this._likeCountElement = this._cardElement.querySelector('.grid__heart_counter');
 
         this._cardImage.src = this._link;
+        this._cardImage.alt = this._name;
         this._cardElement.querySelector('.grid__text').textContent = this._name;
         this.setLikes(this._likes)
 
@@ -31,7 +32,6 @@ export default class Card {
         if(this._ownerId !== this._userId) {
             this._trash.style.display = 'none'
         }
-
 
         return this._cardElement;
     }
@@ -44,8 +44,7 @@ export default class Card {
 
     setLikes(newLikes) {
         this._likes = newLikes;
-        const likeCountElement = this._cardElement.querySelector('.grid__heart_counter');
-        likeCountElement.textContent = this._likes.length
+        this._likeCountElement.textContent = this._likes.length
 
         if(this.isLiked()) {
             this._handleAddLike()
@@ -65,12 +64,6 @@ export default class Card {
     removeCard() {
         this._cardElement.remove();
     };
-
-    _handleCardClick() {
-        this._cardElement.querySelector('.grid__text').textContent = this._name;
-        this._cardImage.src = this._link;
-        this._cardImage.alt = `Изображение ${this._name}`;
-    }
 
     _setEventListeners() {
 

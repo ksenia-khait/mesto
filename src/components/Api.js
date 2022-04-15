@@ -1,16 +1,21 @@
-import {logPlugin} from "@babel/preset-env/lib/debug";
-
 class Api {
     constructor({baseUrl, headers}) {
         this._baseUrl = baseUrl;
         this._headers = headers;
     }
 
+    _checkResponse(res) {
+        if (res.ok) {
+            return res.json();
+        }
+        return Promise.reject(`Ошибка ${res.status}`);
+    }
+
     getProfile() {
         return fetch(`${this._baseUrl}/users/me`, {
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
     }
 
@@ -18,7 +23,7 @@ class Api {
         return fetch(`${this._baseUrl}/cards`, {
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
     }
 
@@ -31,7 +36,7 @@ class Api {
                 about
             })
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
 
     }
@@ -45,7 +50,7 @@ class Api {
                 link
             })
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
 
     }
@@ -55,7 +60,7 @@ class Api {
             method: "DELETE",
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
 
     }
@@ -65,7 +70,7 @@ class Api {
             method: "DELETE",
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
 
     }
@@ -75,7 +80,7 @@ class Api {
             method: "PUT",
             headers: this._headers
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
 
     }
@@ -88,7 +93,7 @@ class Api {
                 avatar: avatar.src
             })
         })
-            .then(res => res.ok ? res.json() : Promise.reject(res.status))
+            .then(this._checkResponse)
             .catch(console.log)
     }
 }
