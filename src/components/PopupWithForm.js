@@ -31,7 +31,6 @@ export default class PopupWithForm extends Popup {
             e.preventDefault()
             this._getInputValues();
             this._formSubmitCallback(this._inputValues);
-            // this.close()
         });
 
         super.setEventListeners();
@@ -44,5 +43,4 @@ export default class PopupWithForm extends Popup {
             this._submitButton.textContent = this._initialText;
         }
     }
-
 }

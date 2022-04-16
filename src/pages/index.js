@@ -12,24 +12,13 @@ let userId;
 
 
 Promise.all([api.getProfile(), api.getInitialCards()])
-    .then(([res, cardList]) => {
+    .then(([userData, cards]) => {
         // установка данных пользователя
-           userInfo.setUserInfo(res.name, res.about, res.avatar)
-           userId = res._id
+           userInfo.setUserInfo(userData.name, userData.about, userData.avatar)
+           userId = userData._id
 
         // отрисовка карточек
-        cardList.reverse().forEach( data => {
-            const card = createCard({
-                name: data.name,
-                link: data.link,
-                likes: data.likes,
-                id: data._id,
-                userId: userId,
-                ownerId: data.owner._id,
-                avatar: data.avatar
-            })
-            section.addItem(card.getCardElement())
-        })
+        section.renderItems(cards)
 
     })
     .catch((err) => {
@@ -114,7 +103,6 @@ function handleNewItemSubmit({name, src}) {
 }
 
 function createCard(data) {
-
     const card = new Card(
         data,
         '.template',
@@ -156,9 +144,11 @@ function createCard(data) {
 }
 
 function renderCard(data) {
+
     const card = createCard(data);
     const cardElement = card.getCardElement();
     section.addItem(cardElement);
+
 }
 
 const section = new Section({
