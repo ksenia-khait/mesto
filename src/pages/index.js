@@ -14,11 +14,24 @@ let userId;
 Promise.all([api.getProfile(), api.getInitialCards()])
     .then(([userData, cards]) => {
         // установка данных пользователя
-           userInfo.setUserInfo(userData.name, userData.about, userData.avatar)
-           userId = userData._id
+        userInfo.setUserInfo(userData.name, userData.about, userData.avatar)
+        userId = userData._id;
 
         // отрисовка карточек
-        section.renderItems(cards)
+        cards.reverse().forEach( data => {
+
+            const card = createCard({
+                name: data.name,
+                link: data.link,
+                likes: data.likes,
+                id: data._id,
+                userId: userId,
+                ownerId: data.owner._id,
+                avatar: data.avatar
+            })
+            section.addItem(card.getCardElement())
+        })
+        section.renderItems(cards())
 
     })
     .catch((err) => {
@@ -31,7 +44,6 @@ const addButton = document.querySelector('.intro__add-button');
 const titleInputValue = document.querySelector('.profile-form__name');
 const captureInputValue = document.querySelector('.profile-form__capture');
 
-
 const editFormValidator = new FormValidator('.profile-form', validationConfig);
 const cardFormValidator = new FormValidator('.new-item-form', validationConfig);
 const validateAvatarEdit = new FormValidator('.avatar-popup-form', validationConfig)
@@ -43,7 +55,6 @@ const userInfo = new UserInfo({
 const popupWithImage = new PopupWithImage('.popup-image');
 const popupWithProfileForm = new PopupWithForm('.profile-popup', handleProfileSubmit);
 const popupRemove = new PopupWithForm('.popup-remove');
-
 
 editProfileButton.addEventListener('click', () => {
     const info = userInfo.getUserInfo();

@@ -12,7 +12,6 @@ export default class Card {
         this._handleCardClick = handleCardClick;
         this._handleDeleteClick = handleDeleteClick;
         this._handleLikeClick = handleLikeClick;
-
     }
 
     getCardElement() {
@@ -66,7 +65,6 @@ export default class Card {
     };
 
     _setEventListeners() {
-
         this._likeButton.addEventListener('click', () => {
             this._handleLikeClick(this._id);
         });
