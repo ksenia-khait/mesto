@@ -17,21 +17,14 @@ Promise.all([api.getProfile(), api.getInitialCards()])
         userInfo.setUserInfo(userData.name, userData.about, userData.avatar)
         userId = userData._id;
 
-        // отрисовка карточек
-        cards.reverse().forEach( data => {
-
-            const card = createCard({
-                name: data.name,
-                link: data.link,
-                likes: data.likes,
-                id: data._id,
-                userId: userId,
-                ownerId: data.owner._id,
-                avatar: data.avatar
-            })
-            section.addItem(card.getCardElement())
-        })
-        section.renderItems(cards())
+        const formattedData = cards.map(data => ({
+            ...data,
+            id: data._id,
+            userId,
+            ownerId: data.owner._id,
+        }))
+       
+        section.renderItems(formattedData)
 
     })
     .catch((err) => {

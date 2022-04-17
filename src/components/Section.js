@@ -4,13 +4,17 @@ export default class Section {
         this._renderer = renderer;
     }
 
-    renderItems(cards) {
-        cards.forEach(item => {
-            this._renderer(item, this._container);
-        });
+    renderItems(items) {
+        items.forEach(item => this._renderer(item))
     }
 
     addItem(element) {
         this._container.prepend(element);
     }
 }
+
+// renderItems(cards) {
+//     cards.forEach(item => {
+//         this._renderer(item, this._container);
+//     });
+// }
