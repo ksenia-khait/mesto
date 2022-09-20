@@ -14,4 +14,4 @@
 * Добавить возможность загрузки/удаления картинок, 
 * функцию like
 
-* [Ссылка на проект](https://ksenia-khait.github.io/mesto/index.html)
+[Ссылка на проект](https://ksenia-khait.github.io/mesto/index.html)
