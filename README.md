@@ -7,14 +7,19 @@
 
 * Данный проект является сервисом, куда можно добавлять фотографии, удалять их и ставить лайки.
 ##
-Стек: HTML, CSS, JS
+Стек Технологий: 
+*HTML
+*CSS 
+*JS
+*Webpack 
+*ООП
 ---
 **В планах**
 
 * Добавить возможность загрузки/удаления картинок, 
 * функцию like
 
-[Ссылка на проект](https://ksenia-khait.github.io/mesto/index.html)
+https://ksenia-khait.github.io/mesto/index.html
 
 
 
