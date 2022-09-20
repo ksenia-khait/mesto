@@ -17,7 +17,3 @@
 * добавить возможность загрузки/удаления картинок, 
 * добавить функцию like/dislike к карточке
 
-https://ksenia-khait.github.io/mesto/index.html
-
-
-
